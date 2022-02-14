@@ -34,3 +34,7 @@ func generate_player_card():
 	
 	print(player_card_ball)
 	pass
+
+func get_next_ball():
+	return sequence_balls.pop_front()
+	pass

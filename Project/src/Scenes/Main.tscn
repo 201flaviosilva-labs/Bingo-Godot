@@ -15,3 +15,9 @@ margin_left = -350.0
 margin_top = -250.0
 margin_right = 0.0
 margin_bottom = 0.0
+
+[node name="NewBallTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="NewBallTimer" to="." method="_on_NewBallTimer_timeout"]
