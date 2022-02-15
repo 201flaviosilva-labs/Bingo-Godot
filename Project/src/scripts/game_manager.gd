@@ -38,3 +38,10 @@ func generate_player_card():
 func get_next_ball():
 	return sequence_balls.pop_front()
 	pass
+
+func get_ball_size():
+	return sequence_balls.size()
+	
+func player_has(value):
+	return player_card_ball.has(value)
+	
