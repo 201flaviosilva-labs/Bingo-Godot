@@ -3,7 +3,7 @@ name: Dev issue
 about: It's template should be only used for the devoleper team!
 title: ''
 labels: ''
-assignees: '201flaviosilva'
+assignees: 201flaviosilva
 
 ---
 
