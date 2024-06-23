@@ -58,6 +58,18 @@ In this project I tried to follow some of the official best practices:
 
 And I tried to follow most of the roles implemented in other game game made by me and some friends: [Olympus Gone Wild - Project Best Practices](https://github.com/FlamingoFiestaStudio/OlympusGoneWild/wiki/ProjectBestPractices)
 
+### Assets Reference
+
+### Fonts
+- [Google Fonts - Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P);
+
+#### Sound
+
+- [Sfxr.me](https://sfxr.me/);
+  - [PickCoin](https://sfxr.me/#34T6PkntbT2sPpbmSdLFDELp8y1kb4VawKK94uMgoA5tpbEfxkuFCncQ37qaDFr13PE72UGGhAFbTZhHVCMSqQZGgV81iYbzxnR3Epg5APmbv6CRbMA8Y1ucs);
+  - [HasBall](https://sfxr.me/#34T6PkkMojo6d3YifwWNNFATMy28KAwRx9Va9yT5Z5rNKVFvyGNHnKR9H8PuYnykfT3FX5ttpLoT7JqXS4N3FxjGnet41axKYYVU7HqYtdyyefBG4tdjNfcmV);
+  - [NoHasBall](https://sfxr.me/#111116wGFWgc4XCLFSkQ7hGSXiiQM3FSF7f817ta9LYaXDJVErQsKjMLUBVkeaLaE2WxufKhAbU2dNXLkgAWUQgrPAzA8SZ6eB2bmjF8P9TbfFJY12isT4RM);
+
 ## Final notes
 
 This project was developed as part of the proposed challenge. I am deeply grateful for the opportunity to participate and showcase my skills.
