@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5g85b7mhl2a"]
+[gd_scene load_steps=7 format=3 uid="uid://c5g85b7mhl2a"]
 
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_tcfj7"]
 [ext_resource type="PackedScene" uid="uid://bh5c3matl013x" path="res://scenes/ball/Ball.tscn" id="2_iaor4"]
 [ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_nyt5c"]
 [ext_resource type="PackedScene" uid="uid://da8mcnqaui1tg" path="res://scenes/card/Card.tscn" id="4_mhxu7"]
+[ext_resource type="AudioStream" uid="uid://bhw0hefiekkan" path="res://assets/sounds/HasBall.wav" id="5_o3frh"]
+[ext_resource type="AudioStream" uid="uid://5ccrs7f5gbvs" path="res://assets/sounds/NoHasBall.wav" id="6_pfakv"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -45,5 +47,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="HasBall" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_o3frh")
+
+[node name="NoBall" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_pfakv")
 
 [connection signal="pressed" from="UI/NewBallButton" to="." method="_on_new_ball_button_pressed"]

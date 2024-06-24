@@ -2,7 +2,9 @@ extends Control
 
 @export var CardButton_Scene: PackedScene
 
-@onready var Grid: GridContainer = $NinePatchRect/VBoxContainer/GridContainer
+@onready var Grid: GridContainer = $NinePatchRect/GridContainer
+
+var missing_numbers = GameManager.PLAYER_CARD_BALLS
 
 func _ready() -> void:
 	_create_buttons()
@@ -10,7 +12,7 @@ func _ready() -> void:
 func _create_buttons() -> void:
 	_remove_buttons()
 	
-	var values = Utils.generate_player_card()
+	var values = GameManager.generate_player_card()
 	
 	for i in range(GameManager.PLAYER_CARD_BALLS):
 		var new_button: Button = CardButton_Scene.instantiate()
@@ -31,9 +33,7 @@ func _remove_buttons() -> void:
 			child.queue_free()
 
 func _on_card_button_pressed(number: int, button: Button) -> void:
+	if not Utils.number_was_extrated(number): return;
+	
 	button.disabled = true
-	print(number)
-
-func _on_bingo_button_pressed() -> void:
-	print("Bingo")
-	pass
+	missing_numbers -= 1
