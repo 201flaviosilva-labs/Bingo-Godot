@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://da8mcnqaui1tg"]
+[gd_scene load_steps=4 format=3 uid="uid://da8mcnqaui1tg"]
 
 [ext_resource type="PackedScene" uid="uid://fetxos7mgmkh" path="res://scenes/card/CardButton.tscn" id="1_02ue8"]
 [ext_resource type="Script" path="res://scenes/card/Card.gd" id="1_4tmt5"]
-[ext_resource type="FontFile" uid="uid://dejtfmjjv1j8h" path="res://assets/fonts/PressStart2P/PressStart2P-Regular.ttf" id="1_036yp"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ywy5s"]
-font = ExtResource("1_036yp")
+[ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="3_587am"]
 
 [node name="Card" type="Control"]
 layout_mode = 3
@@ -13,43 +10,112 @@ anchors_preset = 0
 script = ExtResource("1_4tmt5")
 CardButton_Scene = ExtResource("1_02ue8")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -22.0
+offset_right = 48.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
 columns = 5
 
-[node name="B" type="Label" parent="GridContainer"]
+[node name="B" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("3_587am")
 text = "B"
-label_settings = SubResource("LabelSettings_ywy5s")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="I" type="Label" parent="GridContainer"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/GridContainer/B"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0, 0, 1)
+
+[node name="I" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("3_587am")
 text = "I"
-label_settings = SubResource("LabelSettings_ywy5s")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="N" type="Label" parent="GridContainer"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/GridContainer/I"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.784314, 0, 1)
+
+[node name="N" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("3_587am")
 text = "N"
-label_settings = SubResource("LabelSettings_ywy5s")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="G" type="Label" parent="GridContainer"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/GridContainer/N"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.784314, 0, 1)
+
+[node name="G" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("3_587am")
 text = "G"
-label_settings = SubResource("LabelSettings_ywy5s")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="O" type="Label" parent="GridContainer"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/GridContainer/G"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.784314, 0.784314, 1)
+
+[node name="O" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("3_587am")
 text = "O"
-label_settings = SubResource("LabelSettings_ywy5s")
 horizontal_alignment = 1
 uppercase = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/GridContainer/O"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.784314, 1)
+
+[node name="BingoButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_587am")
+text = "Bingo"
+
+[connection signal="pressed" from="VBoxContainer/BingoButton" to="." method="_on_bingo_button_pressed"]

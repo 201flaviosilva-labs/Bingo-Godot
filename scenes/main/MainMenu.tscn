@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5g85b7mhl2a"]
+[gd_scene load_steps=4 format=3 uid="uid://c5g85b7mhl2a"]
 
 [ext_resource type="Script" path="res://scenes/main/MainMenu.gd" id="1_2yu4c"]
 [ext_resource type="PackedScene" uid="uid://bh5c3matl013x" path="res://scenes/ball/Ball.tscn" id="2_417kt"]
+[ext_resource type="PackedScene" uid="uid://da8mcnqaui1tg" path="res://scenes/card/Card.tscn" id="3_7wbp0"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_2yu4c")
@@ -10,8 +11,28 @@ Ball_Scene = ExtResource("2_417kt")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="NewBallButton" type="Button" parent="UI"]
-offset_right = 8.0
-offset_bottom = 8.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -31.0
+offset_right = 61.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
 text = "Test - New Ball"
+
+[node name="Card" parent="UI" instance=ExtResource("3_7wbp0")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="pressed" from="UI/NewBallButton" to="." method="_on_new_ball_button_pressed"]

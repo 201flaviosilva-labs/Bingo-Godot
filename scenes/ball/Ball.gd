@@ -12,6 +12,10 @@ func set_properties(start_position: Vector2, number: int, color: Color, end_posi
 	ball_color = color
 	ball_end_position = end_position
 
+func start_move_animation() -> void:
+	print("stared")
+	pass
+
 func _ready():
 	$Label.text = str(ball_number)
 	$Sprite2D.modulate = ball_color
