@@ -14,6 +14,11 @@ config/name="Bingo"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Utils="*res://autoload/Utils.gd"
+GameManager="*res://autoload/GameManager.gd"
+
 [display]
 
 window/size/viewport_width=1280

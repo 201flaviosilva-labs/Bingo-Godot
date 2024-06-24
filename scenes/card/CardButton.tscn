@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://fetxos7mgmkh"]
+
+[ext_resource type="FontFile" uid="uid://dejtfmjjv1j8h" path="res://assets/fonts/PressStart2P/PressStart2P-Regular.ttf" id="1_mpg3w"]
+
+[node name="CardButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_mpg3w")
+text = "My Number"

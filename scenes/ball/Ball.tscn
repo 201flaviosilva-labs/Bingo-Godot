@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh5c3matl013x"]
 
-[ext_resource type="Script" path="res://scenes/ball/ball.gd" id="1_t4wvx"]
+[ext_resource type="Script" path="res://scenes/ball/Ball.gd" id="1_t4wvx"]
 [ext_resource type="Texture2D" uid="uid://b0bxpj011nekd" path="res://assets/sprites/Ball.png" id="1_uoe10"]
 [ext_resource type="FontFile" uid="uid://dejtfmjjv1j8h" path="res://assets/fonts/PressStart2P/PressStart2P-Regular.ttf" id="2_cpk7a"]
 
