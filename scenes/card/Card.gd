@@ -2,7 +2,7 @@ extends Control
 
 @export var CardButton_Scene: PackedScene
 
-@onready var Grid: GridContainer = $VBoxContainer/GridContainer
+@onready var Grid: GridContainer = $NinePatchRect/VBoxContainer/GridContainer
 
 func _ready() -> void:
 	_create_buttons()
@@ -33,7 +33,6 @@ func _remove_buttons() -> void:
 func _on_card_button_pressed(number: int, button: Button) -> void:
 	button.disabled = true
 	print(number)
-
 
 func _on_bingo_button_pressed() -> void:
 	print("Bingo")

@@ -4,17 +4,16 @@ class_name Ball
 
 var ball_number: int = 0
 var ball_color: Color = Color(1, 1, 1)
-var ball_end_position: Vector2 = Vector2.ZERO
 
-func set_properties(start_position: Vector2, number: int, color: Color, end_position: Vector2) -> void:
-	position = start_position
+func set_number(number: int, ) -> void:
 	ball_number = number
-	ball_color = color
-	ball_end_position = end_position
+	ball_color = Utils.calc_color(number)
 
-func start_move_animation() -> void:
-	print("stared")
-	pass
+func start_move_animation(end_position: Vector2, start_position: Vector2 = position, time: float = 0.5) -> void:
+	position = start_position
+	var tween = create_tween()
+	
+	tween.tween_property(self, "position", end_position, time)
 
 func _ready():
 	$Label.text = str(ball_number)
