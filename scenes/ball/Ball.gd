@@ -7,7 +7,7 @@ signal animation_finish
 var ball_number: int = 0
 var ball_color: Color = Color(1, 1, 1)
 var tween: Tween
-var to_kill: bool = false
+var to_kill = false
 
 func set_number(number: int) -> void:
 	ball_number = number
@@ -26,7 +26,7 @@ func move_side_animation(end_position: Vector2, time: float = 1) -> void:
 	tween.tween_property(self, "position", end_position, time)
 	
 	if to_kill: # TODO: Fix
-		tween.parallel().tween_property(self, "scale", Vector2(0, 0), time)
+		tween.parallel().tween_property(self, "scale", Vector2(0, 0), time / 3)
 		tween.tween_callback(_kill)
 
 func _ready():
@@ -37,4 +37,5 @@ func _animation_finish() -> void:
 	animation_finish.emit()
 
 func _kill() -> void:
-	pass
+	get_parent().remove_child(self)
+	queue_free()
