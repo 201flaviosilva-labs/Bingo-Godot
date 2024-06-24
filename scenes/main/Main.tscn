@@ -25,20 +25,6 @@ position = Vector2(296, 80)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="NewBallButton" type="Button" parent="UI"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -61.0
-offset_top = -31.0
-offset_right = 61.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 4
-text = "Test - New Ball"
-
 [node name="Card" parent="UI" instance=ExtResource("4_mhxu7")]
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,4 +42,8 @@ stream = ExtResource("5_o3frh")
 [node name="NoBall" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("6_pfakv")
 
-[connection signal="pressed" from="UI/NewBallButton" to="." method="_on_new_ball_button_pressed"]
+[node name="BallExtractionTimer" type="Timer" parent="."]
+wait_time = 3.5
+autostart = true
+
+[connection signal="timeout" from="BallExtractionTimer" to="." method="_on_ball_extraction_timer_timeout"]

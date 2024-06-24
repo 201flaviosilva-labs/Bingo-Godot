@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://da8mcnqaui1tg"]
+[gd_scene load_steps=10 format=3 uid="uid://da8mcnqaui1tg"]
 
 [ext_resource type="PackedScene" uid="uid://fetxos7mgmkh" path="res://scenes/card/CardButton.tscn" id="1_02ue8"]
 [ext_resource type="Script" path="res://scenes/card/Card.gd" id="1_4tmt5"]
 [ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="3_587am"]
 [ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_b83mc"]
-[ext_resource type="AudioStream" uid="uid://41p4mu3gfkqb" path="res://assets/sounds/PickupCoin.wav" id="5_a34ix"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ps7qc"]
 font_size = 32
@@ -101,6 +100,3 @@ text = "O"
 label_settings = SubResource("LabelSettings_tcdel")
 horizontal_alignment = 1
 uppercase = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_a34ix")
