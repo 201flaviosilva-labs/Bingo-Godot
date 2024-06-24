@@ -4,3 +4,4 @@
 
 [resource]
 default_font = ExtResource("1_apt0i")
+default_font_size = 32

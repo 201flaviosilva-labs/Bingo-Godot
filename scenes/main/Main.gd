@@ -3,6 +3,8 @@ extends Control
 @export var Ball_Scene: PackedScene
 
 @onready var BallsWrapper: Node2D = $BallsWrapper
+@onready var has_ball_asp: AudioStreamPlayer = $Sounds/HasBall
+@onready var no_ball_asp: AudioStreamPlayer = $Sounds/NoBall
 
 const BALLS_START_POSITION = Vector2(696, 0)
 const BALLS_MARGIN = 76
@@ -27,6 +29,8 @@ func _new_ball() -> void:
 		BALLS_START_POSITION,
 		1.5 - 0.1 * children.size()
 		)
+	
+	_play_ball_sound(number)
 
 func _move_children_ball() -> void:
 	var child = BallsWrapper.get_children()[0]
@@ -35,6 +39,9 @@ func _move_children_ball() -> void:
 	
 	for ball in BallsWrapper.get_children():
 		ball.start_move_animation(Vector2(ball.position.x - BALLS_MARGIN, 0))
+
+func _play_ball_sound(number: int) -> void:
+	has_ball_asp.play() if Utils.player_has_number(number) else no_ball_asp.play()
 
 func _on_new_ball_button_pressed() -> void:
 	_new_ball()
