@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://da8mcnqaui1tg"]
+
+[ext_resource type="PackedScene" uid="uid://fetxos7mgmkh" path="res://scenes/card/CardButton.tscn" id="1_02ue8"]
+[ext_resource type="Script" path="res://scenes/card/Card.gd" id="1_4tmt5"]
+[ext_resource type="FontFile" uid="uid://dejtfmjjv1j8h" path="res://assets/fonts/PressStart2P/PressStart2P-Regular.ttf" id="1_036yp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywy5s"]
+font = ExtResource("1_036yp")
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4tmt5")
+CardButton_Scene = ExtResource("1_02ue8")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 5
+
+[node name="B" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "B"
+label_settings = SubResource("LabelSettings_ywy5s")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="I" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "I"
+label_settings = SubResource("LabelSettings_ywy5s")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="N" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "N"
+label_settings = SubResource("LabelSettings_ywy5s")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="G" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "G"
+label_settings = SubResource("LabelSettings_ywy5s")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="O" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "O"
+label_settings = SubResource("LabelSettings_ywy5s")
+horizontal_alignment = 1
+uppercase = true
