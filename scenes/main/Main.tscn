@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5g85b7mhl2a"]
+[gd_scene load_steps=9 format=3 uid="uid://c5g85b7mhl2a"]
 
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_tcfj7"]
 [ext_resource type="PackedScene" uid="uid://bh5c3matl013x" path="res://scenes/ball/Ball.tscn" id="2_iaor4"]
 [ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_nyt5c"]
 [ext_resource type="PackedScene" uid="uid://da8mcnqaui1tg" path="res://scenes/card/Card.tscn" id="4_mhxu7"]
+[ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="5_mmxe0"]
 [ext_resource type="AudioStream" uid="uid://bhw0hefiekkan" path="res://assets/sounds/HasBall.wav" id="5_o3frh"]
+[ext_resource type="Script" path="res://scenes/main/Menu.gd" id="6_5yyme"]
 [ext_resource type="AudioStream" uid="uid://5ccrs7f5gbvs" path="res://assets/sounds/NoHasBall.wav" id="6_pfakv"]
 
 [node name="Main" type="Control"]
@@ -37,6 +39,36 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Menu" type="Control" parent="UI"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_mmxe0")
+script = ExtResource("6_5yyme")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayButton" type="Button" parent="UI/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="ResetButton" type="Button" parent="UI/Menu/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Reset"
+
 [node name="Sounds" type="Node" parent="."]
 
 [node name="HasBall" type="AudioStreamPlayer" parent="Sounds"]
@@ -49,4 +81,7 @@ stream = ExtResource("6_pfakv")
 wait_time = 3.5
 autostart = true
 
+[connection signal="pressed" from="UI/Menu/VBoxContainer/PlayButton" to="UI/Menu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/ResetButton" to="UI/Menu" method="_on_reset_button_pressed"]
 [connection signal="timeout" from="BallExtractionTimer" to="." method="_on_ball_extraction_timer_timeout"]

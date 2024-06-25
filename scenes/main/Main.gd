@@ -15,13 +15,23 @@ const MAX_BALLS_STACK = 9
 var missing_numbers = GameManager.PLAYER_CARD_BALLS
 
 func _ready():
+	_reset()
+
+func _reset() -> void:
 	GameManager.generate_balls()
+	card.reset()
+	
+	missing_numbers = GameManager.PLAYER_CARD_BALLS
+	
+	for ball: Ball in BallsWrapper.get_children():
+		BallsWrapper.remove_child(ball)
+		ball.queue_free()
 
 func _new_ball() -> void:
 	var new_ball: Ball = Ball_Scene.instantiate()
 	var number = GameManager.get_next_ball_number()
 	
-	if not number: return; # TODO: Fix
+	if not number: return; # TODO: implement no more ball situation
 	if BallsWrapper.get_children().size() >= MAX_BALLS_STACK: _move_children_ball()
 	
 	var children = BallsWrapper.get_children()
@@ -51,6 +61,7 @@ func _play_ball_sound(number: int) -> void:
 		missing_numbers -= 1
 		card.mark_number(number)
 		has_ball_asp.play()
+		
 		if missing_numbers == 0: _win_bingo()
 		
 	else: no_ball_asp.play()
@@ -60,3 +71,6 @@ func _win_bingo() -> void:
 
 func _on_ball_extraction_timer_timeout() -> void:
 	_new_ball()
+
+func _on_reset_button_pressed() -> void:
+	_reset()

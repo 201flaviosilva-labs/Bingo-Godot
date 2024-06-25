@@ -12,6 +12,9 @@ func mark_number(number: int) -> void:
 			child.disabled = true
 			return;
 
+func reset():
+	_create_buttons()
+
 func _ready() -> void:
 	_create_buttons()
 
