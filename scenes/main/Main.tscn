@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5g85b7mhl2a"]
+[gd_scene load_steps=10 format=3 uid="uid://c5g85b7mhl2a"]
 
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_tcfj7"]
 [ext_resource type="PackedScene" uid="uid://bh5c3matl013x" path="res://scenes/ball/Ball.tscn" id="2_iaor4"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bhw0hefiekkan" path="res://assets/sounds/HasBall.wav" id="5_o3frh"]
 [ext_resource type="PackedScene" uid="uid://cnqnakut55qfk" path="res://scenes/main/Menu.tscn" id="6_b6ogj"]
 [ext_resource type="AudioStream" uid="uid://5ccrs7f5gbvs" path="res://assets/sounds/NoHasBall.wav" id="6_pfakv"]
+[ext_resource type="PackedScene" uid="uid://c1n8xdhhndkav" path="res://scenes/extracted_balls_list/ExtractedBallsList.tscn" id="7_68dau"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -39,6 +40,12 @@ icon = ExtResource("4_7v8hk")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="ExtractedBallsList" parent="UI" instance=ExtResource("7_68dau")]
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 8.0
+offset_bottom = 136.0
 
 [node name="Card" parent="UI" instance=ExtResource("4_mhxu7")]
 anchors_preset = 8
