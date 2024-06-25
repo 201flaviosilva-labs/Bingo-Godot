@@ -4,6 +4,7 @@ extends Control
 
 @onready var grid: GridContainer = $NinePatchRect/GridContainer
 
+# mark the button on the card as matched
 func mark_number(number: int) -> void:
 	var children = grid.get_children()
 	
@@ -18,6 +19,7 @@ func reset():
 func _ready() -> void:
 	reset()
 
+# adds all the (15) buttons to the grid with ther numbers sorted
 func _create_buttons() -> void:
 	_remove_buttons()
 	
@@ -32,6 +34,7 @@ func _create_buttons() -> void:
 		
 		grid.add_child(new_button)
 
+# remove all buttons form the grid
 func _remove_buttons() -> void:
 	var children = grid.get_children()
 	

@@ -27,6 +27,7 @@ const MESSAGES = {
 var balls = [] # Orded list of the extraction balls
 var player_card_balls = [] # List sorted of the player numbers on the card
 
+# Generate random numbers for the player (ex: 15)
 func generate_player_card() -> Array:
 	player_card_balls = range(1, MAX_RANGE_OF_BALLS + 1)
 	player_card_balls.shuffle()
@@ -38,6 +39,6 @@ func generate_balls() -> void:
 	balls = range(1, MAX_RANGE_OF_BALLS + 1)
 	balls.shuffle()
 
-func get_next_ball_number():
-	if not balls.size(): return
+# Returns the next ball to be extract and animated
+func get_next_ball_number() -> int:
 	return balls.pop_front()

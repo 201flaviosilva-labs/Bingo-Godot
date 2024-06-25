@@ -13,8 +13,8 @@ const BALLS_START_POSITION = Vector2(700, 0)
 const BALLS_MARGIN = 76
 const MAX_BALLS_STACK = 9 # Max of the balls in the stack/path of the last extracted balls
 
-var missing_player_numbers: int = GameManager.NUMBER_PLAYER_CARD_BALLS # number of player ball left to match
 var missing_extract_ball: int = GameManager.NUMBER_EXTRACTION_BALLS # number of ball left to extract
+var missing_player_numbers: int = GameManager.NUMBER_PLAYER_CARD_BALLS # number of player ball left to match
 
 func _ready():
 	_reset()
@@ -24,8 +24,8 @@ func _reset() -> void:
 	GameManager.generate_balls()
 	card.reset()
 	
-	missing_player_numbers = GameManager.NUMBER_PLAYER_CARD_BALLS
 	missing_extract_ball = GameManager.NUMBER_EXTRACTION_BALLS
+	missing_player_numbers = GameManager.NUMBER_PLAYER_CARD_BALLS
 	
 	has_ball_asp.stop()
 	no_ball_asp.stop()
@@ -60,6 +60,11 @@ func _new_ball() -> void:
 		)
 	
 	new_ball.animation_finish.connect(_ended_ball_animation.bind(number))
+	
+	print(
+		"Missing balls: " + str(missing_extract_ball) + " " +
+		"Player balls: " + str(missing_player_numbers)
+		)
 
 # Opens the end game Pop up
 func _end_game() -> void:
