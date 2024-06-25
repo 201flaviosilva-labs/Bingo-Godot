@@ -4,6 +4,9 @@ class_name Ball
 
 signal animation_finish
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var label: Label = $Label
+
 var ball_number: int = 0
 var ball_color: Color = Color(1, 1, 1)
 var tween: Tween
@@ -34,8 +37,8 @@ func move_side_animation(end_position: Vector2, time: float = 1) -> void:
 		tween.tween_callback(_kill)
 
 func _ready():
-	$Label.text = str(ball_number)
-	$Sprite2D.modulate = ball_color
+	label.text = str(ball_number)
+	sprite_2d.modulate = ball_color
 
 func _animation_finish() -> void:
 	animation_finish.emit()

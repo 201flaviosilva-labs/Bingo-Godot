@@ -1,7 +1,7 @@
 extends Node
 
 const BALL_EXTRACTION_ANIMATION = 2.5
-const NUMBER_OF_BALLS = 30
+var NUMBER_OF_BALLS = 30
 const PLAYER_CARD_BALLS = 15
 
 const COLORS = {
@@ -15,6 +15,11 @@ const COLORS = {
 	BLACK = Color(0,0,0), # 71, 80
 	GREY = Color(0.5,0.5,0.5), # 81, 90
 	BROWN = Color(0.62, 0.33, 0.17) # 91, 100
+}
+
+const MESSAGES = {
+	WIN = "NICE! BINGO! Now you can be part of the FABAMAQ team!",
+	LOSE = "All balls was extracted, but you will be part of the FABAMAQ team anyway :).",
 }
 
 var balls = []

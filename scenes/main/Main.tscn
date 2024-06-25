@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_tcfj7"]
 [ext_resource type="PackedScene" uid="uid://bh5c3matl013x" path="res://scenes/ball/Ball.tscn" id="2_iaor4"]
 [ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_nyt5c"]
+[ext_resource type="Texture2D" uid="uid://io2m5fexofok" path="res://assets/sprites/pause-button.png" id="4_7v8hk"]
 [ext_resource type="PackedScene" uid="uid://da8mcnqaui1tg" path="res://scenes/card/Card.tscn" id="4_mhxu7"]
-[ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="5_mmxe0"]
 [ext_resource type="AudioStream" uid="uid://bhw0hefiekkan" path="res://assets/sounds/HasBall.wav" id="5_o3frh"]
-[ext_resource type="Script" path="res://scenes/main/Menu.gd" id="6_5yyme"]
+[ext_resource type="PackedScene" uid="uid://cnqnakut55qfk" path="res://scenes/main/Menu.tscn" id="6_b6ogj"]
 [ext_resource type="AudioStream" uid="uid://5ccrs7f5gbvs" path="res://assets/sounds/NoHasBall.wav" id="6_pfakv"]
 
 [node name="Main" type="Control"]
@@ -15,7 +15,7 @@ anchors_preset = 0
 script = ExtResource("1_tcfj7")
 Ball_Scene = ExtResource("2_iaor4")
 
-[node name="NinePatchRect" parent="." instance=ExtResource("3_nyt5c")]
+[node name="BallPath" parent="." instance=ExtResource("3_nyt5c")]
 layout_mode = 0
 offset_left = 248.0
 offset_top = 32.0
@@ -30,6 +30,16 @@ position = Vector2(296, 80)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="PauseButton" type="Button" parent="UI"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 56.0
+icon = ExtResource("4_7v8hk")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="Card" parent="UI" instance=ExtResource("4_mhxu7")]
 anchors_preset = 8
 anchor_left = 0.5
@@ -39,35 +49,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menu" type="Control" parent="UI"]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("5_mmxe0")
-script = ExtResource("6_5yyme")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -84.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="PlayButton" type="Button" parent="UI/Menu/VBoxContainer"]
-layout_mode = 2
-text = "Play"
-
-[node name="ResetButton" type="Button" parent="UI/Menu/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Reset"
+[node name="Menu" parent="UI" instance=ExtResource("6_b6ogj")]
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -81,7 +63,6 @@ stream = ExtResource("6_pfakv")
 wait_time = 3.5
 autostart = true
 
-[connection signal="pressed" from="UI/Menu/VBoxContainer/PlayButton" to="UI/Menu" method="_on_play_button_pressed"]
-[connection signal="pressed" from="UI/Menu/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="UI/Menu/VBoxContainer/ResetButton" to="UI/Menu" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="UI/Menu" method="_on_pause_button_pressed"]
+[connection signal="reset_click" from="UI/Menu" to="." method="_on_menu_reset_click"]
 [connection signal="timeout" from="BallExtractionTimer" to="." method="_on_ball_extraction_timer_timeout"]
