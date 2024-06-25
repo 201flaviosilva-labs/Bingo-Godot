@@ -186,6 +186,22 @@ uppercase = true
 layout_mode = 2
 theme_override_constants/margin_top = 100
 
+[node name="MaxBallsHSlider" type="HSlider" parent="PanelContainer/InitialMenu"]
+layout_mode = 2
+min_value = 30.0
+max_value = 90.0
+value = 30.0
+
+[node name="MaxBallsLabel" type="Label" parent="PanelContainer/InitialMenu"]
+layout_mode = 2
+text = "Balls: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Margin2" type="MarginContainer" parent="PanelContainer/InitialMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+
 [node name="PlayButton" type="Button" parent="PanelContainer/InitialMenu"]
 layout_mode = 2
 text = "PLAY"
@@ -288,6 +304,7 @@ layout_mode = 2
 text = "BACK"
 flat = true
 
+[connection signal="value_changed" from="PanelContainer/InitialMenu/MaxBallsHSlider" to="." method="_on_max_balls_h_slider_value_changed"]
 [connection signal="pressed" from="PanelContainer/InitialMenu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PauseMenu/ButtonsContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PauseMenu/ButtonsContainer/ResetButton" to="." method="_on_reset_button_pressed"]

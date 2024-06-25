@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b0bxpj011nekd" path="res://assets/sprites/Ball.png" id="1_uoe10"]
 [ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="3_74ubm"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_rva3g"]
+[sub_resource type="LabelSettings" id="LabelSettings_8nbbr"]
 font_size = 96
 
 [node name="Ball" type="Node2D"]
@@ -29,6 +29,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_74ubm")
 text = "0"
-label_settings = SubResource("LabelSettings_rva3g")
+label_settings = SubResource("LabelSettings_8nbbr")
 horizontal_alignment = 1
 vertical_alignment = 1

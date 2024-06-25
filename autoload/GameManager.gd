@@ -1,7 +1,7 @@
 extends Node
 
 const BALL_EXTRACTION_ANIMATION = 2.5
-const NUMBER_OF_BALLS = 30
+var NUMBER_OF_BALLS = 30
 const PLAYER_CARD_BALLS = 15
 
 const COLORS = {
