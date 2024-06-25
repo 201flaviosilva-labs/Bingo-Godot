@@ -2,7 +2,7 @@ extends Control
 
 @export var Ball_Scene: PackedScene
 
-@onready var BallsWrapper: Node2D = $BallsWrapper
+@onready var balls_wrapper: Node2D = $BallsWrapper
 @onready var kill_balls_wrapper: Node2D = $KillBallsWrapper
 @onready var has_ball_asp: AudioStreamPlayer = $Sounds/HasBall
 @onready var no_ball_asp: AudioStreamPlayer = $Sounds/NoBall
@@ -23,8 +23,8 @@ func _reset() -> void:
 	
 	missing_numbers = GameManager.PLAYER_CARD_BALLS
 	
-	for ball: Ball in BallsWrapper.get_children():
-		BallsWrapper.remove_child(ball)
+	for ball: Ball in balls_wrapper.get_children():
+		balls_wrapper.remove_child(ball)
 		ball.queue_free()
 
 func _new_ball() -> void:
@@ -32,12 +32,12 @@ func _new_ball() -> void:
 	var number = GameManager.get_next_ball_number()
 	
 	if not number: return; # TODO: implement no more ball situation
-	if BallsWrapper.get_children().size() >= MAX_BALLS_STACK: _move_children_ball()
+	if balls_wrapper.get_children().size() >= MAX_BALLS_STACK: _move_children_ball()
 	
-	var children = BallsWrapper.get_children()
+	var children = balls_wrapper.get_children()
 	
 	new_ball.set_number(number)
-	BallsWrapper.add_child(new_ball)
+	balls_wrapper.add_child(new_ball)
 	new_ball.extraction_animation(
 		Vector2(BALLS_MARGIN * children.size(), 0),
 		BALLS_START_POSITION,
@@ -47,13 +47,13 @@ func _new_ball() -> void:
 	new_ball.animation_finish.connect(_play_ball_sound.bind(number))
 
 func _move_children_ball() -> void:
-	var kill_child = BallsWrapper.get_children()[0]
+	var kill_child = balls_wrapper.get_children()[0]
 	kill_child.to_kill = true
 	
-	for ball: Ball in BallsWrapper.get_children():
+	for ball: Ball in balls_wrapper.get_children():
 		ball.move_side_animation(Vector2(ball.position.x - BALLS_MARGIN, 0))
 	
-	BallsWrapper.remove_child(kill_child)
+	balls_wrapper.remove_child(kill_child)
 	kill_balls_wrapper.add_child(kill_child)
 
 func _play_ball_sound(number: int) -> void:
