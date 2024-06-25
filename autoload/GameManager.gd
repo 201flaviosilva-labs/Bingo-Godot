@@ -21,7 +21,7 @@ const COLORS = {
 # Messages of the end of the game
 const MESSAGES = {
 	WIN = "NICE! BINGO! Now are part of the FABAMAQ team!",
-	LOSE = "All balls was extracted, but you will be part of the FABAMAQ team anyway :).",
+	LOSE = "All balls was extracted and you lose :(. But you will be part of the FABAMAQ team anyway :).",
 }
 
 var balls = [] # Orded list of the extraction balls
