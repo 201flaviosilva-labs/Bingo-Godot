@@ -16,7 +16,7 @@ func reset():
 	_create_buttons()
 
 func _ready() -> void:
-	_create_buttons()
+	reset()
 
 func _create_buttons() -> void:
 	_remove_buttons()
