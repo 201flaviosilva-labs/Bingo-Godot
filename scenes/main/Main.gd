@@ -72,5 +72,5 @@ func _win_bingo() -> void:
 func _on_ball_extraction_timer_timeout() -> void:
 	_new_ball()
 
-func _on_reset_button_pressed() -> void:
+func _on_menu_reset_click() -> void:
 	_reset()

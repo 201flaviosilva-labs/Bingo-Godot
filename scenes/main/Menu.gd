@@ -1,5 +1,7 @@
 extends Control
 
+signal reset_click
+
 @onready var pause_menu: PanelContainer = $PauseMenu
 @onready var resume_button: Button = $PauseMenu/VBoxContainer/HBoxContainer/ResumeButton
 @onready var reset_button: Button = $PauseMenu/VBoxContainer/HBoxContainer/ResetButton
@@ -29,6 +31,7 @@ func _pause() -> void:
 	show()
 
 func _on_reset_button_pressed() -> void:
+	emit_signal("reset_click")
 	_reset()
 
 func _on_pause_button_pressed() -> void:
