@@ -4,7 +4,13 @@ extends Control
 
 @onready var Grid: GridContainer = $NinePatchRect/GridContainer
 
-var missing_numbers = GameManager.PLAYER_CARD_BALLS
+func mark_number(number: int) -> void:
+	var children = Grid.get_children()
+	
+	for child: Control in children:
+		if child.is_in_group("card_button") and child.text == str(number):
+			child.disabled = true
+			return;
 
 func _ready() -> void:
 	_create_buttons()
@@ -20,20 +26,13 @@ func _create_buttons() -> void:
 		
 		new_button.text = str(number)
 		new_button["theme_override_colors/font_color"] = Utils.calc_color(number)
-		new_button.pressed.connect(_on_card_button_pressed.bind(number, new_button))
 		
 		Grid.add_child(new_button)
 
 func _remove_buttons() -> void:
 	var children = Grid.get_children()
 	
-	for child in children:
-		if not child is Label:
+	for child: Control in children:
+		if child.is_in_group("card_button"):
 			Grid.remove_child(child)
 			child.queue_free()
-
-func _on_card_button_pressed(number: int, button: Button) -> void:
-	if not Utils.number_was_extrated(number): return;
-	
-	button.disabled = true
-	missing_numbers -= 1
