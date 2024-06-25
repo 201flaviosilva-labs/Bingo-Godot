@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://da8mcnqaui1tg"]
 
-[ext_resource type="PackedScene" uid="uid://fetxos7mgmkh" path="res://scenes/card/CardButton.tscn" id="1_02ue8"]
 [ext_resource type="Script" path="res://scenes/card/Card.gd" id="1_4tmt5"]
+[ext_resource type="PackedScene" uid="uid://fetxos7mgmkh" path="res://scenes/ui/CardButton.tscn" id="2_3316v"]
 [ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="3_587am"]
 [ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_b83mc"]
 
@@ -29,7 +29,7 @@ font_color = Color(0, 0, 0.784314, 1)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_4tmt5")
-CardButton_Scene = ExtResource("1_02ue8")
+CardButton_Scene = ExtResource("2_3316v")
 
 [node name="NinePatchRect" parent="." instance=ExtResource("3_b83mc")]
 modulate = Color(0.99558, 0.99558, 0.99558, 1)

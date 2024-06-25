@@ -6,6 +6,7 @@ extends Control
 @onready var kill_balls_wrapper: Node2D = $KillBallsWrapper
 @onready var has_ball_asp: AudioStreamPlayer = $Sounds/HasBall
 @onready var no_ball_asp: AudioStreamPlayer = $Sounds/NoBall
+@onready var extracted_balls_list: Control = $UI/ExtractedBallsList
 @onready var card: Panel = $UI/Card
 @onready var menu: Control = $UI/Menu
 
@@ -23,6 +24,7 @@ func _ready():
 func _reset() -> void:
 	GameManager.generate_balls()
 	card.reset()
+	extracted_balls_list.reset()
 	
 	missing_extract_ball = GameManager.NUMBER_EXTRACTION_BALLS
 	missing_player_numbers = GameManager.NUMBER_PLAYER_CARD_BALLS
@@ -85,10 +87,12 @@ func _move_children_ball() -> void:
 
 # Play sound and mark on player card
 func _ended_ball_animation(number: int) -> void:
+	extracted_balls_list.mark_number(number)
+	
 	if Utils.player_has_number(number):
+		has_ball_asp.play()
 		missing_player_numbers -= 1
 		card.mark_number(number)
-		has_ball_asp.play()
 		
 	else: no_ball_asp.play()
 

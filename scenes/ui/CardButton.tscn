@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://fetxos7mgmkh"]
 
-[ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="1_p5ct3"]
+[ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="1_sxi7a"]
 
 [node name="CardButton" type="Button" groups=["card_button"]]
 offset_right = 97.0
 offset_bottom = 60.0
-theme = ExtResource("1_p5ct3")
+theme = ExtResource("1_sxi7a")
 button_mask = 0
 text = "99"
