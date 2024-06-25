@@ -29,8 +29,8 @@ func _reset() -> void:
 	is_game_stated = false
 	get_tree().paused = true
 	
-	max_balls_h_slider.value = GameManager.NUMBER_OF_BALLS
-	max_balls_label.text = "Balls: " + str(GameManager.NUMBER_OF_BALLS)
+	max_balls_h_slider.value = GameManager.MAX_RANGE_OF_BALLS
+	max_balls_label.text = "Balls: " + str(GameManager.MAX_RANGE_OF_BALLS)
 	
 	initial_menu.show()
 	pause_menu.hide()
@@ -69,5 +69,5 @@ func _on_back_button_pressed() -> void:
 	_reset()
 
 func _on_max_balls_h_slider_value_changed(value: float) -> void:
-	GameManager.NUMBER_OF_BALLS = value
-	max_balls_label.text = "Balls: " + str(GameManager.NUMBER_OF_BALLS)
+	GameManager.MAX_RANGE_OF_BALLS = value
+	max_balls_label.text = "Balls: " + str(GameManager.MAX_RANGE_OF_BALLS)

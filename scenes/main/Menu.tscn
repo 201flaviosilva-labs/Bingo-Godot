@@ -188,9 +188,9 @@ theme_override_constants/margin_top = 100
 
 [node name="MaxBallsHSlider" type="HSlider" parent="PanelContainer/InitialMenu"]
 layout_mode = 2
-min_value = 30.0
+min_value = 60.0
 max_value = 90.0
-value = 30.0
+value = 60.0
 
 [node name="MaxBallsLabel" type="Label" parent="PanelContainer/InitialMenu"]
 layout_mode = 2

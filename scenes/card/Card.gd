@@ -23,7 +23,7 @@ func _create_buttons() -> void:
 	
 	var values = GameManager.generate_player_card()
 	
-	for i in range(GameManager.PLAYER_CARD_BALLS):
+	for i in range(GameManager.NUMBER_PLAYER_CARD_BALLS):
 		var new_button: Button = CardButton_Scene.instantiate()
 		var number = values[i]
 		
