@@ -18,7 +18,6 @@ const COLORS = {
 }
 
 var balls = []
-var extrated_balls = []
 var player_card_balls = []
 
 func generate_player_card() -> Array:
@@ -31,10 +30,7 @@ func generate_player_card() -> Array:
 func generate_balls() -> void:
 	balls = range(1, GameManager.NUMBER_OF_BALLS + 1)
 	balls.shuffle()
-	extrated_balls = []
 
 func get_next_ball_number():
 	if not balls.size(): return
-	var n = balls.pop_front()
-	extrated_balls.append(n)
-	return n
+	return balls.pop_front()

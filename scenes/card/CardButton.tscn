@@ -8,5 +8,3 @@ offset_bottom = 60.0
 theme = ExtResource("1_p5ct3")
 button_mask = 0
 text = "99"
-icon_alignment = 1
-expand_icon = true

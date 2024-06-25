@@ -7,7 +7,7 @@ signal animation_finish
 var ball_number: int = 0
 var ball_color: Color = Color(1, 1, 1)
 var tween: Tween
-var to_kill = false
+var to_kill: bool = false
 
 func set_number(number: int) -> void:
 	ball_number = number
