@@ -16,8 +16,11 @@ func set_number(number: int) -> void:
 func extraction_animation(end_position: Vector2, start_position: Vector2 = position, time: float = 3) -> void:
 	position = start_position
 	tween = create_tween()
+	scale = Vector2(0,0)
 	
 	tween.tween_property(self, "position", end_position, time)
+	tween.parallel().tween_property(self, "scale", Vector2(0.33,0.33), time / 4)
+	
 	tween.tween_property(self, "scale", Vector2(0.25,0.25), time / 4)
 	tween.finished.connect(_animation_finish)
 
@@ -25,8 +28,9 @@ func move_side_animation(end_position: Vector2, time: float = 1) -> void:
 	tween = create_tween()
 	tween.tween_property(self, "position", end_position, time)
 	
-	if to_kill: # TODO: Fix
+	if to_kill:
 		tween.parallel().tween_property(self, "scale", Vector2(0, 0), time / 3)
+		tween.parallel().tween_property(self, "modulate", Color(1,1,1,0), time / 3)
 		tween.tween_callback(_kill)
 
 func _ready():

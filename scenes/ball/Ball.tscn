@@ -8,7 +8,7 @@
 font_size = 96
 
 [node name="Ball" type="Node2D"]
-scale = Vector2(0.33, 0.33)
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_t4wvx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

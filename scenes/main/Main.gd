@@ -6,10 +6,13 @@ extends Control
 @onready var kill_balls_wrapper: Node2D = $KillBallsWrapper
 @onready var has_ball_asp: AudioStreamPlayer = $Sounds/HasBall
 @onready var no_ball_asp: AudioStreamPlayer = $Sounds/NoBall
+@onready var card: Panel = $UI/Card
 
-const BALLS_START_POSITION = Vector2(696, 0)
+const BALLS_START_POSITION = Vector2(700, 0)
 const BALLS_MARGIN = 76
 const MAX_BALLS_STACK = 9
+
+var missing_numbers = GameManager.PLAYER_CARD_BALLS
 
 func _ready():
 	GameManager.generate_balls()
@@ -44,7 +47,16 @@ func _move_children_ball() -> void:
 	kill_balls_wrapper.add_child(kill_child)
 
 func _play_ball_sound(number: int) -> void:
-	has_ball_asp.play() if Utils.player_has_number(number) else no_ball_asp.play()
+	if Utils.player_has_number(number):
+		missing_numbers -= 1
+		card.mark_number(number)
+		has_ball_asp.play()
+		if missing_numbers == 0: _win_bingo()
+		
+	else: no_ball_asp.play()
+
+func _win_bingo() -> void:
+	print("Bingo") # TODO: implement this
 
 func _on_ball_extraction_timer_timeout() -> void:
 	_new_ball()

@@ -2,8 +2,11 @@
 
 [ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="1_p5ct3"]
 
-[node name="CardButton" type="Button"]
-offset_right = 66.0
-offset_bottom = 44.0
+[node name="CardButton" type="Button" groups=["card_button"]]
+offset_right = 97.0
+offset_bottom = 60.0
 theme = ExtResource("1_p5ct3")
+button_mask = 0
 text = "99"
+icon_alignment = 1
+expand_icon = true
