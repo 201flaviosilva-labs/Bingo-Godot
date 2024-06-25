@@ -3,6 +3,7 @@ extends Control
 @export var Ball_Scene: PackedScene
 
 @onready var BallsWrapper: Node2D = $BallsWrapper
+@onready var kill_balls_wrapper: Node2D = $KillBallsWrapper
 @onready var has_ball_asp: AudioStreamPlayer = $Sounds/HasBall
 @onready var no_ball_asp: AudioStreamPlayer = $Sounds/NoBall
 
@@ -14,7 +15,7 @@ func _ready():
 	GameManager.generate_balls()
 
 func _new_ball() -> void:
-	var new_ball = Ball_Scene.instantiate()
+	var new_ball: Ball = Ball_Scene.instantiate()
 	var number = GameManager.get_next_ball_number()
 	
 	if not number: return; # TODO: Fix
@@ -24,24 +25,26 @@ func _new_ball() -> void:
 	
 	new_ball.set_number(number)
 	BallsWrapper.add_child(new_ball)
-	new_ball.start_move_animation(
-		Vector2(76 * children.size(), 0),
+	new_ball.extraction_animation(
+		Vector2(BALLS_MARGIN * children.size(), 0),
 		BALLS_START_POSITION,
-		1.5 - 0.1 * children.size()
+		GameManager.BALL_EXTRACTION_ANIMATION - 0.1 * children.size()
 		)
 	
-	_play_ball_sound(number)
+	new_ball.animation_finish.connect(_play_ball_sound.bind(number))
 
 func _move_children_ball() -> void:
-	var child = BallsWrapper.get_children()[0]
-	BallsWrapper.remove_child(child)
-	child.queue_free()
+	var kill_child = BallsWrapper.get_children()[0]
+	kill_child.to_kill = true
 	
-	for ball in BallsWrapper.get_children():
-		ball.start_move_animation(Vector2(ball.position.x - BALLS_MARGIN, 0))
+	for ball: Ball in BallsWrapper.get_children():
+		ball.move_side_animation(Vector2(ball.position.x - BALLS_MARGIN, 0))
+	
+	BallsWrapper.remove_child(kill_child)
+	kill_balls_wrapper.add_child(kill_child)
 
 func _play_ball_sound(number: int) -> void:
 	has_ball_asp.play() if Utils.player_has_number(number) else no_ball_asp.play()
 
-func _on_new_ball_button_pressed() -> void:
+func _on_ball_extraction_timer_timeout() -> void:
 	_new_ball()
