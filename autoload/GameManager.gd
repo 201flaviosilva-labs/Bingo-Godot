@@ -20,7 +20,7 @@ const COLORS = {
 
 # Messages of the end of the game
 const MESSAGES = {
-	WIN = "NICE! BINGO! Now you can be part of the FABAMAQ team!",
+	WIN = "NICE! BINGO! Now are part of the FABAMAQ team!",
 	LOSE = "All balls was extracted, but you will be part of the FABAMAQ team anyway :).",
 }
 

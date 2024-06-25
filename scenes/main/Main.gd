@@ -39,7 +39,7 @@ func _reset() -> void:
 # Counts left ball and check the end of the game
 func _new_ball() -> void:
 	if missing_extract_ball <= 0: # End game
-		menu.game_end(GameManager.MESSAGES.LOSE)
+		_end_game()
 		return;
 
 	if balls_wrapper.get_children().size() >= MAX_BALLS_STACK:
