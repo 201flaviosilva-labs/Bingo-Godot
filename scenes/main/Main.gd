@@ -24,6 +24,9 @@ func _reset() -> void:
 	
 	missing_numbers = GameManager.PLAYER_CARD_BALLS
 	
+	has_ball_asp.stop()
+	no_ball_asp.stop()
+	
 	for ball: Ball in balls_wrapper.get_children():
 		balls_wrapper.remove_child(ball)
 		ball.queue_free()
@@ -67,12 +70,10 @@ func _play_ball_sound(number: int) -> void:
 		card.mark_number(number)
 		has_ball_asp.play()
 		
-		if missing_numbers == 0: _win_bingo()
+		if missing_numbers == 0:
+			menu.game_end(GameManager.MESSAGES.WIN)
 		
 	else: no_ball_asp.play()
-
-func _win_bingo() -> void:
-	menu.game_end(GameManager.MESSAGES.WIN)
 
 func _on_ball_extraction_timer_timeout() -> void:
 	_new_ball()

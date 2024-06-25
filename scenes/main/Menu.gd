@@ -21,8 +21,9 @@ func _ready() -> void:
 	_reset()
 
 func _input(event: InputEvent) -> void:
+	if not is_game_stated: return;
 	if event.is_action_pressed("ui_cancel"):
-		_toggle_pause()
+		_resume() if get_tree().paused else _pause()
 
 func _reset() -> void:
 	is_game_stated = false
@@ -35,10 +36,6 @@ func _reset() -> void:
 	pause_menu.hide()
 	win_menu.hide()
 	show()
-
-func _toggle_pause() -> void:
-	if not is_game_stated: return;
-	_resume() if get_tree().paused else _pause()
 
 func _resume() -> void:
 	is_game_stated = true
