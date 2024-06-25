@@ -3,6 +3,33 @@
 [ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="1_e3e7e"]
 [ext_resource type="Script" path="res://scenes/main/Menu.gd" id="2_ugh7f"]
 
+[sub_resource type="Animation" id="Animation_qymay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bingo:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [48]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Margin:theme_override_constants/margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [100]
+}
+
 [sub_resource type="Animation" id="Animation_0jtfx"]
 resource_name = "Scale"
 length = 3.0
@@ -30,33 +57,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [100, 68]
-}
-
-[sub_resource type="Animation" id="Animation_qymay"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bingo:theme_override_font_sizes/font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [48]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Margin:theme_override_constants/margin_top")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [100]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4e8fn"]
@@ -138,7 +138,7 @@ grow_vertical = 2
 theme = ExtResource("1_e3e7e")
 script = ExtResource("2_ugh7f")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,7 +151,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="InitialMenu" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -165,15 +165,15 @@ offset_bottom = 168.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="ColorRect" parent="InitialMenu"]
+[node name="BG" type="ColorRect" parent="PanelContainer"]
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="InitialMenu"]
+[node name="InitialMenu" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Bingo" type="Label" parent="InitialMenu/VBoxContainer"]
+[node name="Bingo" type="Label" parent="PanelContainer/InitialMenu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0.784314, 1)
 theme_override_font_sizes/font_size = 48
@@ -182,48 +182,30 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Margin" type="MarginContainer" parent="InitialMenu/VBoxContainer"]
+[node name="Margin" type="MarginContainer" parent="PanelContainer/InitialMenu"]
 layout_mode = 2
 theme_override_constants/margin_top = 100
 
-[node name="PlayButton" type="Button" parent="InitialMenu/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="PanelContainer/InitialMenu"]
 layout_mode = 2
 text = "PLAY"
 flat = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="InitialMenu/VBoxContainer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/InitialMenu"]
 libraries = {
 "": SubResource("AnimationLibrary_4e8fn")
 }
 autoplay = "Scale"
 
-[node name="PauseMenu" type="PanelContainer" parent="."]
+[node name="PauseMenu" type="VBoxContainer" parent="PanelContainer"]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -168.0
-offset_right = 192.0
-offset_bottom = 168.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="ColorRect" parent="PauseMenu"]
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Container" type="VBoxContainer" parent="PauseMenu"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Title" type="VBoxContainer" parent="PauseMenu/Container"]
+[node name="Title" type="VBoxContainer" parent="PanelContainer/PauseMenu"]
 layout_mode = 2
 
-[node name="Bingo" type="Label" parent="PauseMenu/Container/Title"]
+[node name="Bingo" type="Label" parent="PanelContainer/PauseMenu/Title"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.784314, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -231,7 +213,7 @@ text = "Bingo"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Paused" type="Label" parent="PauseMenu/Container/Title"]
+[node name="Paused" type="Label" parent="PanelContainer/PauseMenu/Title"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.784314, 0, 1)
 theme_override_font_sizes/font_size = 48
@@ -239,35 +221,74 @@ text = "Paused"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PauseMenu/Container/Title"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/PauseMenu/Title"]
 libraries = {
 "": SubResource("AnimationLibrary_opn1p")
 }
 autoplay = "Scaling"
 
-[node name="Margin" type="MarginContainer" parent="PauseMenu/Container"]
+[node name="Margin" type="MarginContainer" parent="PanelContainer/PauseMenu"]
 layout_mode = 2
 theme_override_constants/margin_top = 100
 
-[node name="ButtonsContainer" type="HBoxContainer" parent="PauseMenu/Container"]
+[node name="ButtonsContainer" type="HBoxContainer" parent="PanelContainer/PauseMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/Container/ButtonsContainer"]
+[node name="ResumeButton" type="Button" parent="PanelContainer/PauseMenu/ButtonsContainer"]
 layout_mode = 2
 text = "RESUME"
 flat = true
 
-[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Container/ButtonsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/PauseMenu/ButtonsContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 
-[node name="ResetButton" type="Button" parent="PauseMenu/Container/ButtonsContainer"]
+[node name="ResetButton" type="Button" parent="PanelContainer/PauseMenu/ButtonsContainer"]
 layout_mode = 2
 text = "RESET"
 flat = true
 
-[connection signal="pressed" from="InitialMenu/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Container/ButtonsContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Container/ButtonsContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[node name="WinMenu" type="VBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="PanelContainer/WinMenu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Bingo"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Margin2" type="MarginContainer" parent="PanelContainer/WinMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="Message" type="RichTextLabel" parent="PanelContainer/WinMenu"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.588235, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]
+Nice!
+Now you can be part of the FABAMAQ team!
+[/center]"
+fit_content = true
+
+[node name="Margin" type="MarginContainer" parent="PanelContainer/WinMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="BackButton" type="Button" parent="PanelContainer/WinMenu"]
+layout_mode = 2
+text = "BACK"
+flat = true
+
+[connection signal="pressed" from="PanelContainer/InitialMenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/PauseMenu/ButtonsContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/PauseMenu/ButtonsContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="PanelContainer/WinMenu/BackButton" to="." method="_on_back_button_pressed"]

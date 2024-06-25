@@ -7,6 +7,7 @@ extends Control
 @onready var has_ball_asp: AudioStreamPlayer = $Sounds/HasBall
 @onready var no_ball_asp: AudioStreamPlayer = $Sounds/NoBall
 @onready var card: Panel = $UI/Card
+@onready var menu: Control = $UI/Menu
 
 const BALLS_START_POSITION = Vector2(700, 0)
 const BALLS_MARGIN = 76
@@ -31,8 +32,12 @@ func _new_ball() -> void:
 	var new_ball: Ball = Ball_Scene.instantiate()
 	var number = GameManager.get_next_ball_number()
 	
-	if not number: return; # TODO: implement no more ball situation
-	if balls_wrapper.get_children().size() >= MAX_BALLS_STACK: _move_children_ball()
+	if not number:
+		menu.game_end(GameManager.MESSAGES.LOSE)
+		return;
+	
+	if balls_wrapper.get_children().size() >= MAX_BALLS_STACK:
+		_move_children_ball()
 	
 	var children = balls_wrapper.get_children()
 	
@@ -67,7 +72,7 @@ func _play_ball_sound(number: int) -> void:
 	else: no_ball_asp.play()
 
 func _win_bingo() -> void:
-	print("Bingo") # TODO: implement this
+	menu.game_end(GameManager.MESSAGES.WIN)
 
 func _on_ball_extraction_timer_timeout() -> void:
 	_new_ball()

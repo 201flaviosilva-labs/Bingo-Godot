@@ -17,6 +17,11 @@ const COLORS = {
 	BROWN = Color(0.62, 0.33, 0.17) # 91, 100
 }
 
+const MESSAGES = {
+	WIN = "NICE! BINGO! Now you can be part of the FABAMAQ team!",
+	LOSE = "All balls was extracted, but you will be part of the FABAMAQ team anyway :).",
+}
+
 var balls = []
 var player_card_balls = []
 

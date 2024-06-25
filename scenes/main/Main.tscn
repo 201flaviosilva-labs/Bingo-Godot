@@ -15,7 +15,7 @@ anchors_preset = 0
 script = ExtResource("1_tcfj7")
 Ball_Scene = ExtResource("2_iaor4")
 
-[node name="NinePatchRect" parent="." instance=ExtResource("3_nyt5c")]
+[node name="BallPath" parent="." instance=ExtResource("3_nyt5c")]
 layout_mode = 0
 offset_left = 248.0
 offset_top = 32.0
