@@ -73,7 +73,7 @@ And I tried to follow most of the roles implemented in other game game made by m
 
 #### Sprites
 
-- [anticlockwise-rotation, pause-button, play-button](https://game-icons.net/tags/gui.html);
+- [pause-button](https://game-icons.net/tags/gui.html);
 
 ## Final notes
 

@@ -4,6 +4,7 @@ extends Control
 
 @onready var grid: GridContainer = $NinePatchRect/GridContainer
 
+# mark the button on the card as matched
 func mark_number(number: int) -> void:
 	var children = grid.get_children()
 	
@@ -18,12 +19,13 @@ func reset():
 func _ready() -> void:
 	reset()
 
+# adds all the (15) buttons to the grid with ther numbers sorted
 func _create_buttons() -> void:
 	_remove_buttons()
 	
 	var values = GameManager.generate_player_card()
 	
-	for i in range(GameManager.PLAYER_CARD_BALLS):
+	for i in range(GameManager.NUMBER_PLAYER_CARD_BALLS):
 		var new_button: Button = CardButton_Scene.instantiate()
 		var number = values[i]
 		
@@ -32,6 +34,7 @@ func _create_buttons() -> void:
 		
 		grid.add_child(new_button)
 
+# remove all buttons form the grid
 func _remove_buttons() -> void:
 	var children = grid.get_children()
 	
