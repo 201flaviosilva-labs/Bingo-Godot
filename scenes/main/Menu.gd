@@ -8,6 +8,7 @@ signal reset_click
 @onready var message: RichTextLabel = $PanelContainer/WinMenu/Message
 @onready var max_balls_h_slider: HSlider = $PanelContainer/InitialMenu/MaxBallsHSlider
 @onready var max_balls_label: Label = $PanelContainer/InitialMenu/MaxBallsLabel
+@onready var check_button: CheckButton = $PanelContainer/InitialMenu/CheckButton
 
 var is_game_stated: bool = false # Used to block "esc" key on initial menu 
 
@@ -34,6 +35,7 @@ func _reset() -> void:
 	
 	max_balls_h_slider.value = GameManager.MAX_RANGE_OF_BALLS
 	max_balls_label.text = "Balls: " + str(GameManager.MAX_RANGE_OF_BALLS)
+	check_button.button_pressed = GameManager.IS_AUTOPLAY_ON
 	
 	initial_menu.show()
 	pause_menu.hide()
@@ -81,3 +83,6 @@ func _on_back_button_pressed() -> void:
 func _on_max_balls_h_slider_value_changed(value: float) -> void:
 	GameManager.MAX_RANGE_OF_BALLS = value
 	max_balls_label.text = "Balls: " + str(GameManager.MAX_RANGE_OF_BALLS)
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	GameManager.IS_AUTOPLAY_ON = toggled_on

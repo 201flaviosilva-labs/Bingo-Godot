@@ -11,3 +11,7 @@ func calc_color(number: int) -> Color:
 # Check if the player card has the provied number
 func player_has_number(number: int) -> bool:
 	return GameManager.player_card_balls.has(number)
+
+# Check if the given number was already extracted
+func number_was_extrated(number: int) -> bool:
+	return GameManager.extrated_balls.has(number)

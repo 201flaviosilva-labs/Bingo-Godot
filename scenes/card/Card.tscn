@@ -29,7 +29,7 @@ font_color = Color(0, 0, 0.784314, 1)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_4tmt5")
-CardButton_Scene = ExtResource("2_3316v")
+CardButtonScene = ExtResource("2_3316v")
 
 [node name="NinePatchRect" parent="." instance=ExtResource("3_b83mc")]
 modulate = Color(0.99558, 0.99558, 0.99558, 1)

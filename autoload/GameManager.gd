@@ -4,6 +4,7 @@ const BALL_EXTRACTION_ANIMATION = 2.5 # Time of the ball extraction animation
 const NUMBER_PLAYER_CARD_BALLS = 15 # Number of the number avaliable on the player card
 const NUMBER_EXTRACTION_BALLS = 30 # Number of ball to extract
 var MAX_RANGE_OF_BALLS = 60 # Max of the range of the ball ex: 1-60 or 1-90
+var IS_AUTOPLAY_ON = true # Toggle for the manual play or auto play
 
 const COLORS = {
 	RED = Color(1,0,0), # 1,10
@@ -26,6 +27,7 @@ const MESSAGES = {
 
 var balls = [] # Orded list of the extraction balls
 var player_card_balls = [] # List sorted of the player numbers on the card
+var extrated_balls = [] # list of the extrated ball
 
 # Generate random numbers for the player (ex: 15)
 func generate_player_card() -> Array:
@@ -38,7 +40,10 @@ func generate_player_card() -> Array:
 func generate_balls() -> void:
 	balls = range(1, MAX_RANGE_OF_BALLS + 1)
 	balls.shuffle()
+	extrated_balls = []
 
 # Returns the next ball to be extract and animated
 func get_next_ball_number() -> int:
-	return balls.pop_front()
+	var b = balls.pop_front()
+	extrated_balls.append(b)
+	return b

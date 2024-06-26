@@ -173,6 +173,10 @@ color = Color(0, 0, 0, 1)
 layout_mode = 2
 alignment = 1
 
+[node name="Margin5" type="MarginContainer" parent="PanelContainer/InitialMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
 [node name="Bingo" type="Label" parent="PanelContainer/InitialMenu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0.784314, 1)
@@ -185,6 +189,15 @@ uppercase = true
 [node name="Margin" type="MarginContainer" parent="PanelContainer/InitialMenu"]
 layout_mode = 2
 theme_override_constants/margin_top = 100
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/InitialMenu"]
+layout_mode = 2
+button_pressed = true
+text = "Autoplay:"
+
+[node name="Margin3" type="MarginContainer" parent="PanelContainer/InitialMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
 
 [node name="MaxBallsHSlider" type="HSlider" parent="PanelContainer/InitialMenu"]
 layout_mode = 2
@@ -206,6 +219,10 @@ theme_override_constants/margin_top = 64
 layout_mode = 2
 text = "PLAY"
 flat = true
+
+[node name="Margin4" type="MarginContainer" parent="PanelContainer/InitialMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/InitialMenu"]
 libraries = {
@@ -304,6 +321,7 @@ layout_mode = 2
 text = "BACK"
 flat = true
 
+[connection signal="toggled" from="PanelContainer/InitialMenu/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="value_changed" from="PanelContainer/InitialMenu/MaxBallsHSlider" to="." method="_on_max_balls_h_slider_value_changed"]
 [connection signal="pressed" from="PanelContainer/InitialMenu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/PauseMenu/ButtonsContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

@@ -15,7 +15,7 @@ const BALLS_MARGIN = 76
 const MAX_BALLS_STACK = 9 # Max of the balls in the stack/path of the last extracted balls
 
 var missing_extract_ball: int = GameManager.NUMBER_EXTRACTION_BALLS # number of ball left to extract
-var missing_player_numbers: int = GameManager.NUMBER_PLAYER_CARD_BALLS # number of player ball left to match
+var missing_player_numbers: int = GameManager.NUMBER_PLAYER_CARD_BALLS # number of player ball left to match, used on autoplay
 
 func _ready():
 	_reset()
@@ -62,15 +62,10 @@ func _new_ball() -> void:
 		)
 	
 	new_ball.animation_finish.connect(_ended_ball_animation.bind(number))
-	
-	print(
-		"Missing balls: " + str(missing_extract_ball) + " " +
-		"Player balls: " + str(missing_player_numbers)
-		)
 
 # Opens the end game Pop up
 func _end_game() -> void:
-	if missing_player_numbers == 0: menu.game_end(GameManager.MESSAGES.WIN)
+	if missing_player_numbers == 0 or card.missing_numbers == 0: menu.game_end(GameManager.MESSAGES.WIN)
 	else: menu.game_end(GameManager.MESSAGES.LOSE)
 
 # Move extracted balls to the left
@@ -91,8 +86,9 @@ func _ended_ball_animation(number: int) -> void:
 	
 	if Utils.player_has_number(number):
 		has_ball_asp.play()
-		missing_player_numbers -= 1
-		card.mark_number(number)
+		if GameManager.IS_AUTOPLAY_ON:
+			missing_player_numbers -= 1
+			card.mark_number(number)
 		
 	else: no_ball_asp.play()
 

@@ -6,5 +6,4 @@
 offset_right = 97.0
 offset_bottom = 60.0
 theme = ExtResource("1_sxi7a")
-button_mask = 0
 text = "99"
