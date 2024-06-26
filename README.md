@@ -2,13 +2,53 @@
 
 ## Description
 
-This is a game created for the FABAMAQ 1 week challenge. This game was developed with Godot 4.2.
-
-**[WIP]**
+This is a Bingo game created for the FABAMAQ 1 week challenge. This game was developed with Godot 4.2.
 
 ## Preview
 
-**[WIP]**
+### YouTube Video
+
+[![Alt Image](https://img.youtube.com/vi/PwRi2NXG9ZE/0.jpg)](https://www.youtube.com/watch?v=PwRi2NXG9ZE)
+
+### Main Menu
+
+![Main Menu preview](./docs/images/MainMenu.png)
+
+This is the main menu, and the player can select between autoplay (the game will mark the numbers automatically), or manual play. And the player can select the range of the balls, between 60 and 90.
+
+After clicking on the play button the game will start.
+
+### Game
+
+![Game preview](./docs/images/Game.png)
+
+This is the game, were the magic happens, the extraction of the ball every 3 seconds.
+
+The player can view the last 10 balls extracted on the top of the screen. On the left, the player can see all the extracted balls and the ones left to extract.
+
+At the center of the screen, the player has the player card. If the game is on manual mode, the player has to click on the button after ball is extracted. If it's on autoplay, after the extraction animation the computer will mark automatically.
+
+### Pause Menu
+
+![Pause Menu preview](./docs/images/PauseMenu.png)
+
+The player can pause the game and access the pause menu by clicking on the pause button, or on the `esc` key.
+
+In this menu, the player can resume game (same as clicking on the `esc` key) or restart the game, and will be moved to the [Main Menu](#main-menu).
+
+### End Game Menus
+
+**Win**
+
+![Win Menu](./docs/images/WinMenu.png)
+
+**Lose**
+
+![Lose](./docs/images/LoseMenu.png)
+
+After all balls are extracted:
+- If the player marked all balls on his card: Win screen will show up;
+- Else: Lose screen will show up;
 
 ## Game Concept
 
@@ -21,6 +61,7 @@ This is a game created for the FABAMAQ 1 week challenge. This game was developed
 ### Technical Detail
 
 - Balls
+
   - 30 balls, each with a different number (default range from 1 to 60);
   - The balls have different colors, organized in groups of 10 (e.g., balls 1 to 10 are blue, 11 to 20 are red, etc.);
   - At the start of the draw, the balls follow a linear path from the right to the left of the screen, with a small margin on both sides;
@@ -28,6 +69,7 @@ This is a game created for the FABAMAQ 1 week challenge. This game was developed
   - Upon reaching the end of the path, two possible sounds are played: one if the number is on the card and another if it is not;
 
 - Card
+
   - The card must have a matrix of unique numbers (same range as the balls);
   - The matrix should be displayed in a 3x5 format, and the numbers should be ordered;
   - When a ball reaches the end of the path, if the number is on the card, it should be marked in a different color;
@@ -37,8 +79,7 @@ This is a game created for the FABAMAQ 1 week challenge. This game was developed
   - Pauses the drawing and animation of the balls when clicked again, and resumes when clicked once more;
   - Resets the game when the drawing ends (balls return to their original position, marks on the card are cleared, new numbers are generated, etc.) and starts a new game with randomized balls and numbers;
 
-
-## Implementation
+## Devolopment
 
 | Category             | Tools         |
 | -------------------- | ------------- |
@@ -47,8 +88,6 @@ This is a game created for the FABAMAQ 1 week challenge. This game was developed
 | Version Control      | Git/GitHub    |
 | Task Manager         | GitHub Issues |
 
-**[WIP]**
-
 ### Project Conventions
 
 In this project I tried to follow some of the official best practices:
@@ -56,7 +95,7 @@ In this project I tried to follow some of the official best practices:
 - https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/index.html
 - https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
 
-And I tried to follow most of the roles implemented in other game game made by me and some friends: [Olympus Gone Wild - Project Best Practices](https://github.com/FlamingoFiestaStudio/OlympusGoneWild/wiki/ProjectBestPractices)
+And I tried to follow most of the roles implemented in other game made by me and some friends: [Olympus Gone Wild - Project Best Practices](https://github.com/FlamingoFiestaStudio/OlympusGoneWild/wiki/ProjectBestPractices)
 
 ### Assets Reference
 
@@ -77,6 +116,4 @@ And I tried to follow most of the roles implemented in other game game made by m
 
 ## Final notes
 
-This project was developed as part of the proposed challenge. I am deeply grateful for the opportunity to participate and showcase my skills.
-
-**[WIP]**
+This project was developed as part of the proposed challenge. I am deeply grateful for the opportunity to participate and showcase my skills. I learned a lot with this project, and I'm kinda proud of the final result.
