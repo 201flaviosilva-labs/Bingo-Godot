@@ -110,10 +110,6 @@ And I tried to follow most of the roles implemented in other game made by me and
   - [HasBall](https://sfxr.me/#34T6PkkMojo6d3YifwWNNFATMy28KAwRx9Va9yT5Z5rNKVFvyGNHnKR9H8PuYnykfT3FX5ttpLoT7JqXS4N3FxjGnet41axKYYVU7HqYtdyyefBG4tdjNfcmV);
   - [NoHasBall](https://sfxr.me/#111116wGFWgc4XCLFSkQ7hGSXiiQM3FSF7f817ta9LYaXDJVErQsKjMLUBVkeaLaE2WxufKhAbU2dNXLkgAWUQgrPAzA8SZ6eB2bmjF8P9TbfFJY12isT4RM);
 
-#### Sprites
-
-- [pause-button](https://game-icons.net/tags/gui.html);
-
 ## Final notes
 
 This project was developed as part of the proposed challenge. I am deeply grateful for the opportunity to participate and showcase my skills. I learned a lot with this project, and I'm kinda proud of the final result.
