@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_tcfj7"]
 [ext_resource type="PackedScene" uid="uid://bh5c3matl013x" path="res://scenes/ball/Ball.tscn" id="2_iaor4"]
 [ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_nyt5c"]
-[ext_resource type="Texture2D" uid="uid://io2m5fexofok" path="res://assets/sprites/pause-button.png" id="4_7v8hk"]
+[ext_resource type="Texture2D" uid="uid://bk4kbtjfe28gy" path="res://assets/sprites/pause-button.png" id="4_7v8hk"]
 [ext_resource type="PackedScene" uid="uid://da8mcnqaui1tg" path="res://scenes/card/Card.tscn" id="4_mhxu7"]
 [ext_resource type="AudioStream" uid="uid://bhw0hefiekkan" path="res://assets/sounds/HasBall.wav" id="5_o3frh"]
 [ext_resource type="PackedScene" uid="uid://cnqnakut55qfk" path="res://scenes/main/Menu.tscn" id="6_b6ogj"]
