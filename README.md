@@ -4,6 +4,8 @@
 
 This is a Bingo game created for the FABAMAQ 1 week challenge. This game was developed with Godot 4.2.
 
+To play the game use this link: https://201flaviosilva-bingo.netlify.app/ or install the game in computer selecting the version and the platform: https://github.com/201flaviosilva/Bingo-Godot/releases
+
 ## Preview
 
 ### YouTube Video
