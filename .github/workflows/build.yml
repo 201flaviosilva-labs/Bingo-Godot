@@ -1,0 +1,52 @@
+name: Build Godot Project
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Export the godot project
+        uses: mirror12k/godot-export-build@v1
+        with:
+          godot-version: "4.2.2"
+          project-path: "."
+
+      - name: Copy netlify config to web build
+        run: cp netlify.toml _build/web/
+
+      - name: Web - Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Web
+          path: _build/web/*
+
+      - name: Windows - Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Windows
+          path: _build/windows/*
+
+      - name: MacOS - Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: MacOS
+          path: _build/macos/*
+
+      - name: Linux - Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Linux
+          path: _build/linux/*
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages
+          folder: _build/web
