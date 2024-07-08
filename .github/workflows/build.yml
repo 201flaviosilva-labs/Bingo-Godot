@@ -45,8 +45,8 @@ jobs:
           name: Linux
           path: _build/linux/*
 
-      - name: Deploy to GitHub Pages 🚀
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          branch: gh-pages
+          branch: deploy
           folder: _build/web
