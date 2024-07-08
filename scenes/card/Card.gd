@@ -2,7 +2,7 @@ extends Control
 
 @export var CardButtonScene: PackedScene
 
-@onready var grid: GridContainer = $NinePatchRect/GridContainer
+@onready var grid: GridContainer = $PanelContainer/HorizontalContainer/VerticalContainer/GridContainer
 
 var missing_numbers = GameManager.NUMBER_PLAYER_CARD_BALLS # check how many number missing to mark, only for manual play
 

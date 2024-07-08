@@ -25,43 +25,45 @@ font_color = Color(0, 0.784314, 0.784314, 1)
 font_size = 32
 font_color = Color(0, 0, 0.784314, 1)
 
-[node name="Card" type="Panel"]
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_4tmt5")
 CardButtonScene = ExtResource("2_3316v")
 
-[node name="NinePatchRect" parent="." instance=ExtResource("3_b83mc")]
-modulate = Color(0.99558, 0.99558, 0.99558, 1)
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -241.5
-offset_top = -201.0
-offset_right = 241.5
-offset_bottom = 201.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = -16.0
-offset_right = 88.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="NinePatchRect" parent="PanelContainer" instance=ExtResource("3_b83mc")]
+modulate = Color(0.99558, 0.99558, 0.99558, 1)
+layout_mode = 2
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MarginLeft" type="MarginContainer" parent="PanelContainer/HorizontalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="VerticalContainer" type="VBoxContainer" parent="PanelContainer/HorizontalContainer"]
+layout_mode = 2
+
+[node name="MarginTop" type="MarginContainer" parent="PanelContainer/HorizontalContainer/VerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/HorizontalContainer/VerticalContainer"]
+layout_mode = 2
 columns = 5
 
-[node name="B" type="Label" parent="NinePatchRect/GridContainer"]
+[node name="B" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_587am")
 text = "B"
@@ -69,7 +71,7 @@ label_settings = SubResource("LabelSettings_ps7qc")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="I" type="Label" parent="NinePatchRect/GridContainer"]
+[node name="I" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_587am")
 text = "I"
@@ -77,7 +79,7 @@ label_settings = SubResource("LabelSettings_7tjbi")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="N" type="Label" parent="NinePatchRect/GridContainer"]
+[node name="N" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_587am")
 text = "N"
@@ -85,7 +87,7 @@ label_settings = SubResource("LabelSettings_1vhtf")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="G" type="Label" parent="NinePatchRect/GridContainer"]
+[node name="G" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_587am")
 text = "G"
@@ -93,10 +95,18 @@ label_settings = SubResource("LabelSettings_vx8y5")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="O" type="Label" parent="NinePatchRect/GridContainer"]
+[node name="O" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_587am")
 text = "O"
 label_settings = SubResource("LabelSettings_tcdel")
 horizontal_alignment = 1
 uppercase = true
+
+[node name="MarginBottom" type="MarginContainer" parent="PanelContainer/HorizontalContainer/VerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 4
+
+[node name="MarginRight" type="MarginContainer" parent="PanelContainer/HorizontalContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 4

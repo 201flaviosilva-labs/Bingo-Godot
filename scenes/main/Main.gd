@@ -7,7 +7,7 @@ extends Control
 @onready var has_ball_asp: AudioStreamPlayer = $Sounds/HasBall
 @onready var no_ball_asp: AudioStreamPlayer = $Sounds/NoBall
 @onready var extracted_balls_list: Control = $UI/ExtractedBallsList
-@onready var card: Panel = $UI/Card
+@onready var card: Control = $UI/Card
 @onready var menu: Control = $UI/Menu
 
 const BALLS_START_POSITION = Vector2(700, 0)
