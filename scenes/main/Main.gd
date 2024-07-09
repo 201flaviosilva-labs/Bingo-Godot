@@ -41,7 +41,7 @@ func _reset() -> void:
 # Counts left ball and check the end of the game
 func _new_ball() -> void:
 	if missing_extract_ball <= 0: # End game
-		_end_game()
+		menu.game_end(GameManager.MESSAGES.LOSE)
 		return;
 
 	if balls_wrapper.get_children().size() >= MAX_BALLS_STACK:
@@ -63,11 +63,6 @@ func _new_ball() -> void:
 	
 	new_ball.animation_finish.connect(_ended_ball_animation.bind(number))
 
-# Opens the end game Pop up
-func _end_game() -> void:
-	if missing_player_numbers == 0 or card.missing_numbers == 0: menu.game_end(GameManager.MESSAGES.WIN)
-	else: menu.game_end(GameManager.MESSAGES.LOSE)
-
 # Move extracted balls to the left
 # Remove last ball (the left one) 
 func _move_children_ball() -> void:
@@ -81,6 +76,7 @@ func _move_children_ball() -> void:
 	kill_balls_wrapper.add_child(kill_child)
 
 # Play sound and mark on player card
+# If player marked all ball on the card the win Pop up
 func _ended_ball_animation(number: int) -> void:
 	extracted_balls_list.mark_number(number)
 	
@@ -89,6 +85,8 @@ func _ended_ball_animation(number: int) -> void:
 		if GameManager.IS_AUTOPLAY_ON:
 			missing_player_numbers -= 1
 			card.mark_number(number)
+		
+		if missing_player_numbers == 0: menu.game_end(GameManager.MESSAGES.WIN)
 		
 	else: no_ball_asp.play()
 
@@ -99,3 +97,7 @@ func _on_ball_extraction_timer_timeout() -> void:
 # Event reset from the Menu node (from the reset button)
 func _on_menu_reset_click() -> void:
 	_reset()
+
+# Show win pop up
+func _on_card_finished_card():
+	menu.game_end(GameManager.MESSAGES.WIN)
