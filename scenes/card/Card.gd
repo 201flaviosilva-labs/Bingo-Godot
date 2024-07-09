@@ -1,5 +1,7 @@
 extends Control
 
+signal finished_card
+
 @export var CardButtonScene: PackedScene
 
 @onready var grid: GridContainer = $PanelContainer/HorizontalContainer/VerticalContainer/GridContainer
@@ -56,3 +58,5 @@ func _on_card_button_pressed(number: int, button: Button) -> void:
 	
 	button.disabled = true
 	missing_numbers -= 1
+	
+	if missing_numbers == 0: finished_card.emit()

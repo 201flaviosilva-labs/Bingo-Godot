@@ -71,5 +71,6 @@ wait_time = 3.5
 autostart = true
 
 [connection signal="pressed" from="UI/PauseButton" to="UI/Menu" method="_on_pause_button_pressed"]
+[connection signal="finished_card" from="UI/Card" to="." method="_on_card_finished_card"]
 [connection signal="reset_click" from="UI/Menu" to="." method="_on_menu_reset_click"]
 [connection signal="timeout" from="BallExtractionTimer" to="." method="_on_ball_extraction_timer_timeout"]
