@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://j72tbnoynxp7"]
+
+[ext_resource type="PackedScene" uid="uid://da8mcnqaui1tg" path="res://scenes/card/CardTemplate.tscn" id="1_6mbil"]
+[ext_resource type="Script" path="res://scenes/card/ExtractedBallsCard.gd" id="2_o6ctb"]
+[ext_resource type="FontFile" uid="uid://dejtfmjjv1j8h" path="res://assets/fonts/PressStart2P/PressStart2P-Regular.ttf" id="2_tyott"]
+
+[node name="ExtractedCard" instance=ExtResource("1_6mbil")]
+script = ExtResource("2_o6ctb")
+
+[node name="PanelContainer" parent="." index="0"]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 160.0
+offset_bottom = 36.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Title" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer" index="1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tyott")
+theme_override_font_sizes/font_size = 16
+text = "All Balls"
+horizontal_alignment = 1
+vertical_alignment = 1

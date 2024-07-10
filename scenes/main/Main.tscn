@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_nyt5c"]
 [ext_resource type="Texture2D" uid="uid://bk4kbtjfe28gy" path="res://assets/sprites/pause-button.png" id="4_7v8hk"]
 [ext_resource type="AudioStream" uid="uid://bhw0hefiekkan" path="res://assets/sounds/HasBall.wav" id="5_o3frh"]
+[ext_resource type="PackedScene" uid="uid://j72tbnoynxp7" path="res://scenes/card/ExtractedBallsCard.tscn" id="6_a384h"]
 [ext_resource type="PackedScene" uid="uid://cnqnakut55qfk" path="res://scenes/main/Menu.tscn" id="6_b6ogj"]
 [ext_resource type="PackedScene" uid="uid://bmfskiaa02fgs" path="res://scenes/card/PlayerCard.tscn" id="6_oxvbv"]
 [ext_resource type="AudioStream" uid="uid://5ccrs7f5gbvs" path="res://assets/sounds/NoHasBall.wav" id="6_pfakv"]
-[ext_resource type="PackedScene" uid="uid://c1n8xdhhndkav" path="res://scenes/extracted_balls_list/ExtractedBallsList.tscn" id="7_68dau"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -41,7 +41,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="ExtractedBallsList" parent="UI" instance=ExtResource("7_68dau")]
+[node name="ExtractedCard" parent="UI" instance=ExtResource("6_a384h")]
 offset_left = 8.0
 offset_top = 136.0
 offset_right = 8.0
@@ -57,6 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Menu" parent="UI" instance=ExtResource("6_b6ogj")]
+visible = false
 
 [node name="Sounds" type="Node" parent="."]
 
