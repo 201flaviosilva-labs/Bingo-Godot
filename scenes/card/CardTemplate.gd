@@ -1,12 +1,8 @@
 extends Control
 
-signal finished_card
-
 @export var CardButtonScene: PackedScene
 
 @onready var grid: GridContainer = $PanelContainer/HorizontalContainer/VerticalContainer/GridContainer
-
-var missing_numbers = GameManager.NUMBER_PLAYER_CARD_BALLS # check how many number missing to mark, only for manual play
 
 # mark the button on the card as matched
 func mark_number(number: int) -> void:
@@ -18,8 +14,6 @@ func mark_number(number: int) -> void:
 			return;
 
 func reset():
-	missing_numbers = GameManager.NUMBER_PLAYER_CARD_BALLS
-	
 	_create_buttons()
 
 func _ready() -> void:
@@ -53,10 +47,5 @@ func _remove_buttons() -> void:
 			child.queue_free()
 
 # On manual play mark the number on the card on click
-func _on_card_button_pressed(number: int, button: Button) -> void:
-	if not Utils.number_was_extrated(number): return;
-	
-	button.disabled = true
-	missing_numbers -= 1
-	
-	if missing_numbers == 0: finished_card.emit()
+func _on_card_button_pressed(_number: int, _button: Button) -> void:
+	pass

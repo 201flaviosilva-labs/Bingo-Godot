@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bh5c3matl013x" path="res://scenes/ball/Ball.tscn" id="2_iaor4"]
 [ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_nyt5c"]
 [ext_resource type="Texture2D" uid="uid://bk4kbtjfe28gy" path="res://assets/sprites/pause-button.png" id="4_7v8hk"]
-[ext_resource type="PackedScene" uid="uid://da8mcnqaui1tg" path="res://scenes/card/Card.tscn" id="4_mhxu7"]
 [ext_resource type="AudioStream" uid="uid://bhw0hefiekkan" path="res://assets/sounds/HasBall.wav" id="5_o3frh"]
 [ext_resource type="PackedScene" uid="uid://cnqnakut55qfk" path="res://scenes/main/Menu.tscn" id="6_b6ogj"]
+[ext_resource type="PackedScene" uid="uid://bmfskiaa02fgs" path="res://scenes/card/PlayerCard.tscn" id="6_oxvbv"]
 [ext_resource type="AudioStream" uid="uid://5ccrs7f5gbvs" path="res://assets/sounds/NoHasBall.wav" id="6_pfakv"]
 [ext_resource type="PackedScene" uid="uid://c1n8xdhhndkav" path="res://scenes/extracted_balls_list/ExtractedBallsList.tscn" id="7_68dau"]
 
@@ -47,7 +47,7 @@ offset_top = 136.0
 offset_right = 8.0
 offset_bottom = 136.0
 
-[node name="Card" parent="UI" instance=ExtResource("4_mhxu7")]
+[node name="PlayerCard" parent="UI" instance=ExtResource("6_oxvbv")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -71,6 +71,6 @@ wait_time = 3.5
 autostart = true
 
 [connection signal="pressed" from="UI/PauseButton" to="UI/Menu" method="_on_pause_button_pressed"]
-[connection signal="finished_card" from="UI/Card" to="." method="_on_card_finished_card"]
+[connection signal="finished_card" from="UI/PlayerCard" to="." method="_on_player_card_finished_card"]
 [connection signal="reset_click" from="UI/Menu" to="." method="_on_menu_reset_click"]
 [connection signal="timeout" from="BallExtractionTimer" to="." method="_on_ball_extraction_timer_timeout"]

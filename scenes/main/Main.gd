@@ -7,7 +7,7 @@ extends Control
 @onready var has_ball_asp: AudioStreamPlayer = $Sounds/HasBall
 @onready var no_ball_asp: AudioStreamPlayer = $Sounds/NoBall
 @onready var extracted_balls_list: Control = $UI/ExtractedBallsList
-@onready var card: Control = $UI/Card
+@onready var card: Control = $UI/PlayerCard
 @onready var menu: Control = $UI/Menu
 
 const BALLS_START_POSITION = Vector2(700, 0)
@@ -99,5 +99,5 @@ func _on_menu_reset_click() -> void:
 	_reset()
 
 # Show win pop up
-func _on_card_finished_card():
+func _on_player_card_finished_card():
 	menu.game_end(GameManager.MESSAGES.WIN)

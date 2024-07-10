@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://da8mcnqaui1tg"]
+
+[ext_resource type="Script" path="res://scenes/card/CardTemplate.gd" id="1_btmcm"]
+[ext_resource type="PackedScene" uid="uid://fetxos7mgmkh" path="res://scenes/ui/CardButton.tscn" id="2_3316v"]
+[ext_resource type="PackedScene" uid="uid://frnlxll4whl5" path="res://scenes/ui/BorderNinePatchReact.tscn" id="3_b83mc"]
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_btmcm")
+CardButtonScene = ExtResource("2_3316v")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" parent="PanelContainer" instance=ExtResource("3_b83mc")]
+modulate = Color(0.99558, 0.99558, 0.99558, 1)
+layout_mode = 2
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MarginLeft" type="MarginContainer" parent="PanelContainer/HorizontalContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="VerticalContainer" type="VBoxContainer" parent="PanelContainer/HorizontalContainer"]
+layout_mode = 2
+
+[node name="MarginTop" type="MarginContainer" parent="PanelContainer/HorizontalContainer/VerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/HorizontalContainer/VerticalContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="MarginBottom" type="MarginContainer" parent="PanelContainer/HorizontalContainer/VerticalContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 4
+
+[node name="MarginRight" type="MarginContainer" parent="PanelContainer/HorizontalContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 4
