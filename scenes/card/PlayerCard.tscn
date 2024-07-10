@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmfskiaa02fgs"]
+
+[ext_resource type="PackedScene" uid="uid://da8mcnqaui1tg" path="res://scenes/card/CardTemplate.tscn" id="1_kmews"]
+[ext_resource type="Script" path="res://scenes/card/PlayerCard.gd" id="2_47ns0"]
+[ext_resource type="Theme" uid="uid://2unc7x0hukgi" path="res://assets/fonts/PressStart2P/PressStart2P.tres" id="2_hvsxa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4plho"]
+font_size = 32
+font_color = Color(0.784314, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_54onn"]
+font_size = 32
+font_color = Color(0.532712, 0.532712, 3.85046e-07, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_syp0f"]
+font_size = 32
+font_color = Color(0, 0.784314, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7agu"]
+font_size = 32
+font_color = Color(0, 0.784314, 0.784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_11vtp"]
+font_size = 32
+font_color = Color(0, 0, 0.784314, 1)
+
+[node name="PlayerCard" instance=ExtResource("1_kmews")]
+script = ExtResource("2_47ns0")
+
+[node name="B" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer" index="0"]
+layout_mode = 2
+theme = ExtResource("2_hvsxa")
+text = "B"
+label_settings = SubResource("LabelSettings_4plho")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="I" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer" index="1"]
+layout_mode = 2
+theme = ExtResource("2_hvsxa")
+text = "I"
+label_settings = SubResource("LabelSettings_54onn")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="N" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer" index="2"]
+layout_mode = 2
+theme = ExtResource("2_hvsxa")
+text = "N"
+label_settings = SubResource("LabelSettings_syp0f")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="G" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer" index="3"]
+layout_mode = 2
+theme = ExtResource("2_hvsxa")
+text = "G"
+label_settings = SubResource("LabelSettings_w7agu")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="O" type="Label" parent="PanelContainer/HorizontalContainer/VerticalContainer/GridContainer" index="4"]
+layout_mode = 2
+theme = ExtResource("2_hvsxa")
+text = "O"
+label_settings = SubResource("LabelSettings_11vtp")
+horizontal_alignment = 1
+uppercase = true
