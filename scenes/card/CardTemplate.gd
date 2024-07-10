@@ -25,9 +25,8 @@ func _ready() -> void:
 func _create_buttons(values: Array) -> void:
 	_remove_buttons()
 	
-	for i in range(values.size()):
+	for number in values:
 		var new_button: Button = CardButtonScene.instantiate()
-		var number = values[i]
 
 		new_button.text = str(number)
 		new_button["theme_override_colors/font_color"] = Utils.calc_color(number)
